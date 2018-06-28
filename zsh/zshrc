@@ -1,0 +1,25 @@
+export ZSH="${HOME}/.oh-my-zsh"
+
+ZSH_THEME="agnoster"
+
+HYPHEN_INSENSITIVE="true"
+COMPLETION_WAITING_DOTS="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+plugins=(encode64 git osx pip python tmux urltools web-search)
+
+source ${ZSH}/oh-my-zsh.sh
+
+bindkey "^[^[[D" backward-word
+bindkey "^[^[[C" forward-word
+
+share() {
+    chmod a+r $@
+    scp $@ files.ulim.it:files/
+    for fn in "$@"
+    do
+        python3 -c "import urllib.parse,sys;print('https://files.ulim.it/' + urllib.parse.quote_plus(sys.argv[1]))" "$(basename '$fn')"
+    done
+}
+
+source ${HOME}/.zshrc-overrides

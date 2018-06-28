@@ -1,0 +1,4 @@
+#!/bin/sh
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+${SCRIPTPATH}/ctags.sh >/dev/null 2>&1 &

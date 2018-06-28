@@ -1,0 +1,5 @@
+#!/bin/sh
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+case "$1" in
+  rebase) exec ${SCRIPTPATH}/post-merge ;;
+esac
