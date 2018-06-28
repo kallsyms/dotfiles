@@ -6,12 +6,12 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 git -C "${SCRIPTPATH}" submodule update --init --recursive
 
 # link everything out to homedir
-ln -s "${SCRIPTPATH}/ctags.conf" "${HOME}/.ctags"
-ln -s "${SCRIPTPATH}/radare2rc" "${HOME}/.radare2rc"
-ln -s "${SCRIPTPATH}/tmux.conf" "${HOME}/.tmux.conf"
-ln -s "${SCRIPTPATH}/vim" "${HOME}/.vim"
-ln -s "${SCRIPTPATH}/zsh/oh-my-zsh" "${HOME}/.oh-my-zsh"
-ln -s "${SCRIPTPATH}/zsh/zshrc" "${HOME}/.zshrc"
+ln -sf "${SCRIPTPATH}/ctags.conf" "${HOME}/.ctags"
+ln -sf "${SCRIPTPATH}/radare2rc" "${HOME}/.radare2rc"
+ln -sf "${SCRIPTPATH}/tmux.conf" "${HOME}/.tmux.conf"
+ln -sf "${SCRIPTPATH}/vim" "${HOME}/.vim"
+ln -sf "${SCRIPTPATH}/zsh/oh-my-zsh" "${HOME}/.oh-my-zsh"
+ln -sf "${SCRIPTPATH}/zsh/zshrc" "${HOME}/.zshrc"
 
 if [ ! -f "${HOME}/.zshrc-overrides" ]; then
     touch "${HOME}/.zshrc-overrides"
