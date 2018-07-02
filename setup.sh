@@ -6,6 +6,7 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 git -C "${SCRIPTPATH}" submodule update --init --recursive
 
 # link everything out to homedir
+ln -sf "${SCRIPTPATH}/conkyrc" "${HOME}/.conkyrc"
 ln -sf "${SCRIPTPATH}/ctags.conf" "${HOME}/.ctags"
 ln -sf "${SCRIPTPATH}/radare2rc" "${HOME}/.radare2rc"
 ln -sf "${SCRIPTPATH}/tmux.conf" "${HOME}/.tmux.conf"
