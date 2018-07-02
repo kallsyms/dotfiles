@@ -10,3 +10,12 @@
 [submodule "zsh/oh-my-zsh"]
 	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
+[submodule "vim/pack/essential/start/ctrlp.vim"]
+	path = vim/pack/essential/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule "vim/pack/essential/start/nerdtree"]
+	path = vim/pack/essential/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/pack/essential/start/nerdtree-git-plugin"]
+	path = vim/pack/essential/start/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin
