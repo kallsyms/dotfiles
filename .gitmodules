@@ -19,3 +19,6 @@
 [submodule "vim/pack/essential/start/nerdtree-git-plugin"]
 	path = vim/pack/essential/start/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin
+[submodule "vim/pack/essential/start/vim-commentary"]
+	path = vim/pack/essential/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
