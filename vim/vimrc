@@ -309,6 +309,9 @@ set foldlevel=99
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 set splitright
 
+set undodir=~/.vim/undo
+set undofile
+
 " Plugin customization
 " ctags files are stored in .git so we don't have to .gitignore them
 set tags=./.git/tags;
