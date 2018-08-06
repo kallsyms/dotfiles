@@ -1,19 +1,31 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 git -C "${SCRIPTPATH}" submodule update --init --recursive
 
-# link everything out to homedir
-ln -sf "${SCRIPTPATH}/conkyrc" "${HOME}/.conkyrc"
-ln -sf "${SCRIPTPATH}/ctags.conf" "${HOME}/.ctags"
-ln -sf "${SCRIPTPATH}/radare2rc" "${HOME}/.radare2rc"
-ln -sf "${SCRIPTPATH}/tmux.conf" "${HOME}/.tmux.conf"
-ln -sf "${SCRIPTPATH}/vim" "${HOME}/.vim"
-ln -sf "${SCRIPTPATH}/zsh/oh-my-zsh" "${HOME}/.oh-my-zsh"
-ln -sf "${SCRIPTPATH}/zsh/zshrc" "${HOME}/.zshrc"
+# setup_path path/in/dotfiles path/in/homedir
+function setup_path {
+    existing="${HOME}/$2"
+    if [ -f "${existing}" ] || [ -d "${existing}" ] && [ ! -L "${existing}" ]; then
+        echo "Moving existing ${existing} to ${existing}.old"
+        mv "${existing}" "${existing}.old"
+    fi
+    ln -sfn "${SCRIPTPATH}/$1" "${existing}"
+}
 
+# link everything out to homexisting
+setup_path "conkyrc" ".conkyrc"
+setup_path "ctags.conf" ".ctags"
+setup_path "radare2rc" ".radare2rc"
+setup_path "tmux.conf" ".tmux.conf"
+setup_path "vim" ".vim"
+setup_path "zsh/zshrc" ".zshrc"
+setup_path "zsh/oh-my-zsh" ".oh-my-zsh"
+
+# Create zsh overrides file if it doesn't exist
+# (for machine-specific customizations)
 if [ ! -f "${HOME}/.zshrc-overrides" ]; then
     touch "${HOME}/.zshrc-overrides"
 fi

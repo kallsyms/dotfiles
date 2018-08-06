@@ -7,7 +7,7 @@ test_fmt() {
     IFS='
 '
     exitcode=0
-    for file in `git diff --cached --name-only --diff-filter=ACM | grep '\.go$'`
+    for file in `git diff --cached --name-only --diff-filter=ACM | grep '\.go$' | grep -v -E '(vendor|third_party)/'`
     do
         output=`gofmt -w "$file"`
         if test -n "$output"
