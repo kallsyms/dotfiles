@@ -23,6 +23,7 @@ setup_path "tmux.conf" ".tmux.conf"
 setup_path "vim" ".vim"
 setup_path "zsh/zshrc" ".zshrc"
 setup_path "zsh/oh-my-zsh" ".oh-my-zsh"
+setup_path "i3" ".config/i3"
 
 # Create zsh overrides file if it doesn't exist
 # (for machine-specific customizations)
