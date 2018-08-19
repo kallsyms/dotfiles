@@ -12,6 +12,9 @@ function setup_path {
         echo "Moving existing ${existing} to ${existing}.old"
         mv "${existing}" "${existing}.old"
     fi
+    if [ ! -d "$(dirname ${existing})" ]; then
+        mkdir -p "$(dirname ${existing})"
+    fi
     ln -sfn "${SCRIPTPATH}/$1" "${existing}"
 }
 
@@ -24,6 +27,7 @@ setup_path "vim" ".vim"
 setup_path "zsh/zshrc" ".zshrc"
 setup_path "zsh/oh-my-zsh" ".oh-my-zsh"
 setup_path "i3" ".config/i3"
+setup_path "i3status.conf" ".config/i3status/config"
 
 # Create zsh overrides file if it doesn't exist
 # (for machine-specific customizations)
