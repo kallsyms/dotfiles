@@ -176,9 +176,6 @@ noremap J 5j
 noremap K 5k
 noremap L 5w
 
-nnoremap Q q
-nnoremap q <Nop>
-
 """"""""""""""""""""""""""""""
 " => Status line
 """"""""""""""""""""""""""""""
