@@ -24,7 +24,7 @@ set wildmenu
 set wildignore=*.o,*~,*.pyc
 
 " A buffer becomes hidden when it is abandoned
-set hid
+set hidden
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -61,7 +61,8 @@ set tm=500
 set number
 
 " Nice mouse stuff
-set mouse=vc
+set mouse=v
+set ttymouse=xterm2
 
 " No startup message
 set shortmess+=I
@@ -103,8 +104,8 @@ set tabstop=4
 
 set expandtab
 
-au BufNewFile,BufRead *.go setlocal noexpandtab
-
+" Tab complete when there is text on a line, else normal tab for
+" indentation
 function! CleverTab()
    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
       return "\<Tab>"
@@ -114,12 +115,8 @@ function! CleverTab()
 endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
 
-" Linebreak on 500 characters
-set lbr
-set tw=500
-
-set ai
-set si
+set autoindent
+set smartindent
 set wrap
 
 
@@ -313,24 +310,39 @@ set undodir=~/.vim/undo
 set undofile
 
 " Plugin customization
-" ctags files are stored in .git so we don't have to .gitignore them
-set tags=./.git/tags;
 
-" Tagbar
-" Always open
-autocmd VimEnter * :call tagbar#autoopen()
-let g:tagbar_autofocus=0
-let g:tagbar_autoclose=0
-" No spacing
-let g:tagbar_compact=1
-" Toggle tree with space
-let g:tagbar_map_togglefold=["<Space>", "za"]
+" Tags
+let g:gutentags_dont_load=1
+if executable('ctags')
+    " Gutentags
+    let g:gutentags_dont_load=0
+    let g:gutentags_cache_dir="/tmp"
+
+    " Tagbar
+    autocmd VimEnter * :call tagbar#autoopen()
+    " Always open
+    let g:tagbar_autofocus=0
+    let g:tagbar_autoclose=0
+    " No spacing
+    let g:tagbar_compact=1
+    " Toggle tree with space
+    let g:tagbar_map_togglefold=["<Space>", "za"]
+endif
 
 " Nerdtree
-" Open if no file specified
+" Open if directory specified
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" Close if tree is only thign open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Toggle on Ctrl+g
 map <C-g> :NERDTreeToggle<CR>
 " Toggle tree with space
 let g:NERDTreeMapActivateNode="<Space>"
+
+" CtrlP
+" Use Ctrl-Space
+let g:ctrlp_map = '<Nul>'
+
+" ALE
+let g:airline#extensions#ale#enabled = 1
