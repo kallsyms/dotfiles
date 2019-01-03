@@ -28,6 +28,7 @@ setup_path "zsh/zshrc" ".zshrc"
 setup_path "zsh/oh-my-zsh" ".oh-my-zsh"
 setup_path "i3" ".config/i3"
 setup_path "i3status.conf" ".config/i3status/config"
+setup_path "flake8" ".config/flake8"
 
 # Create zsh overrides file if it doesn't exist
 # (for machine-specific customizations)
