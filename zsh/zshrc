@@ -6,7 +6,7 @@ HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(encode64 git osx pip python tmux urltools web-search)
+plugins=(encode64 git pip python tmux urltools)
 
 source ${ZSH}/oh-my-zsh.sh
 

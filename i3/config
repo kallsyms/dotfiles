@@ -122,7 +122,7 @@ bar {
 }
 
 bindsym $mod+Shift+Escape exec ~/.config/i3/lock.sh
-bindsym $mod+b exec chromium
+bindsym $mod+b exec chromium-browser
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 1 set Master 1%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 1 set Master 1%-
