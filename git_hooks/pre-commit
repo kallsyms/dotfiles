@@ -3,7 +3,7 @@
 # git add -p or git commit -p.
 
 test_fmt() {
-    hash gofmt 2>&- || { echo >&2 "gofmt not in PATH."; exit 1; }
+    hash gofmt 2>&- || { echo >&2 "gofmt not in PATH. Not formatting code"; exit 0; }
     IFS='
 '
     exitcode=0
