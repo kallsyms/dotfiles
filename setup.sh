@@ -38,6 +38,7 @@ fi
 
 # git hooks
 git config --global core.hookspath "${SCRIPTPATH}/git_hooks"
+git config --global core.excludesfile "${SCRIPTPATH}/gitignore"
 
 if hash apt 2>/dev/null; then
     echo "Installing shell"
