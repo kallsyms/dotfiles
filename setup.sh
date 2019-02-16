@@ -42,11 +42,11 @@ git config --global core.excludesfile "${SCRIPTPATH}/gitignore"
 
 if hash apt 2>/dev/null; then
     echo "Installing shell"
-    sudo apt install zsh
+    sudo apt install -y zsh
     chsh -s $(which zsh)
 
     echo "Installing build utils"
-    sudo apt install build-essential autoconf pkg-config
+    sudo apt install -y build-essential autoconf pkg-config
 
     echo "Building and installing ctags"
     pushd /tmp
@@ -61,7 +61,7 @@ if hash apt 2>/dev/null; then
     rm -rf /tmp/ctags
 
     echo "Installing clang-format"
-    sudo apt install clang-format
+    sudo apt install -y clang-format
 else
     hash ctags 2>/dev/null || echo "You need to install ctags (https://github.com/universal-ctags/ctags)"
     hash zsh 2>/dev/null || echo "You need to install zsh"
