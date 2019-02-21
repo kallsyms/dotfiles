@@ -1,4 +1,4 @@
-export ZSH="${HOME}/.oh-my-zsh"
+ZSH="${HOME}/.oh-my-zsh"
 
 ZSH_THEME="agnoster"
 
@@ -22,4 +22,7 @@ share() {
     done
 }
 
-source ${HOME}/.zshrc-overrides
+if [[ -f "${HOME}/dotfiles/overrides/zsh/zshrc-overrides" ]]
+then
+    source "${HOME}/dotfiles/overrides/zsh/zshrc-overrides"
+fi

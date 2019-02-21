@@ -134,4 +134,4 @@ exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 
 
 exec ~/.fehbg
-exec ~/.config/i3/overrides/startup.sh
+exec ~/dotfiles/overrides/i3/startup.sh

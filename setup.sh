@@ -30,12 +30,6 @@ setup_path "i3" ".config/i3"
 setup_path "i3status.conf" ".config/i3status/config"
 setup_path "flake8" ".config/flake8"
 
-# Create zsh overrides file if it doesn't exist
-# (for machine-specific customizations)
-if [ ! -f "${HOME}/.zshrc-overrides" ]; then
-    touch "${HOME}/.zshrc-overrides"
-fi
-
 # git hooks
 git config --global core.hookspath "${SCRIPTPATH}/git_hooks"
 git config --global core.excludesfile "${SCRIPTPATH}/gitignore"
