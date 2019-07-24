@@ -35,8 +35,8 @@ git config --global core.hookspath "${SCRIPTPATH}/git_hooks"
 git config --global core.excludesfile "${SCRIPTPATH}/gitignore"
 
 if hash apt 2>/dev/null; then
-    echo "Installing shell"
-    sudo apt install -y zsh
+    echo "Installing shell and other essentials"
+    sudo apt install -y zsh tmux
     chsh -s $(which zsh)
 
     echo "Installing build utils"
@@ -59,5 +59,6 @@ if hash apt 2>/dev/null; then
 else
     hash ctags 2>/dev/null || echo "You need to install ctags (https://github.com/universal-ctags/ctags)"
     hash zsh 2>/dev/null || echo "You need to install zsh"
+    hash tmux 2>/dev/null || echo "You need to install tmux"
     hash clang-format 2>/dev/null || echo "You should install clang/clang-format"
 fi
