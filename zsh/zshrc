@@ -14,11 +14,10 @@ bindkey "^[^[[D" backward-word
 bindkey "^[^[[C" forward-word
 
 share() {
-    chmod a+r $@
-    scp $@ files.ulim.it:files/
     for fn in "$@"
     do
-        python3 -c "import urllib.parse,sys;print('https://files.ulim.it/' + urllib.parse.quote_plus(sys.argv[1]))" "$(basename '$fn')"
+        rclone copy "$fn" b2:ng-pub
+        python3 -c "import urllib.parse,sys;print('https://files.nickgregory.me/file/ng-pub/' + urllib.parse.quote_plus(sys.argv[1]))" "$(basename $fn)"
     done
 }
 
