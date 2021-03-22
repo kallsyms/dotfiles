@@ -16,12 +16,18 @@ bindkey "^[^[[C" forward-word
 share() {
     for fn in "$@"
     do
-        rclone copy "$fn" b2:ng-pub
-        python3 -c "import urllib.parse,sys;print('https://files.nickgregory.me/file/ng-pub/' + urllib.parse.quote_plus(sys.argv[1]))" "$(basename $fn)"
+        rclone copy "$fn" b2:ulimit/
+        python3 -c "import urllib.parse,sys;print('https://files.ulim.it/file/ulimit/' + urllib.parse.quote_plus(sys.argv[1]))" "$(basename $fn)"
     done
 }
+
+alias d=docker
+alias k=kubectl
 
 if [[ -f "${HOME}/dotfiles/overrides/zsh/zshrc-overrides" ]]
 then
     source "${HOME}/dotfiles/overrides/zsh/zshrc-overrides"
 fi
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

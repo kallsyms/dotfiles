@@ -22,15 +22,13 @@
 [submodule "vim/pack/essential/start/vim-commentary"]
 	path = vim/pack/essential/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
-[submodule "vim/pack/essential/start/ale"]
-	path = vim/pack/essential/start/ale
-	url = https://github.com/w0rp/ale
 [submodule "vim/pack/essential/start/vim-airline"]
 	path = vim/pack/essential/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
-[submodule "vim/pack/essential/start/vim-gutentags"]
-	path = vim/pack/essential/start/vim-gutentags
-	url = https://github.com/ludovicchabant/vim-gutentags
 [submodule "vim/pack/essential/start/vim-elixir"]
 	path = vim/pack/essential/start/vim-elixir
 	url = https://github.com/elixir-editors/vim-elixir
+[submodule "vim/pack/essential/start/coc.nvim"]
+	path = vim/pack/essential/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+	branch = release
