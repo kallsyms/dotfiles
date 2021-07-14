@@ -296,6 +296,19 @@ set undofile
 " CoC
 set tagfunc=CocTagFunc
 
+let g:coc_global_extensions = [
+    \'coc-clangd',
+    \'coc-go',
+    \'coc-html',
+    \'coc-json',
+    \'coc-pyright',
+    \'coc-rust-analyzer',
+    \'coc-sh',
+    \'coc-sql',
+    \'coc-yaml',
+    \'coc-git'
+    \]
+
 " Tagbar
 autocmd VimEnter * :call tagbar#autoopen()
 " Always open
