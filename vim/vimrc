@@ -363,3 +363,7 @@ let g:NERDTreeMapActivateNode="<Space>"
 " CtrlP
 " Use Ctrl-Space
 let g:ctrlp_map = '<Nul>'
+
+if filereadable(expand("~/dotfiles/overrides/vim/vimrc-overrides"))
+    source ~/dotfiles/overrides/vim/vimrc-overrides
+endif
