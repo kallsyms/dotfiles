@@ -33,11 +33,14 @@ setup_path "flake8" ".config/flake8"
 git config --global core.hookspath "${SCRIPTPATH}/git_hooks"
 git config --global core.excludesfile "${SCRIPTPATH}/gitignore"
 
+# caps->escape
+echo "setxkbmap -option caps:escape" >> ${HOME}/.xinitrc
+
 if hash apt 2>/dev/null; then
     sudo apt update
 
     echo "Installing shell and other essentials"
-    sudo apt install -y zsh tmux curl vim
+    sudo apt install -y zsh tmux curl vim silversearcher-ag
     echo "chsh:"
     chsh -s $(which zsh)
 
@@ -46,6 +49,10 @@ if hash apt 2>/dev/null; then
 
     echo "Installing clang-format"
     sudo apt install -y clang-format
+
+    echo "Installing node"
+    curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt install -y nodejs
 
     if [ "$(lsb_release -si)" == "Ubuntu" ]; then
         echo "Installing go"
@@ -61,8 +68,10 @@ if hash apt 2>/dev/null; then
           $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
         sudo apt update && sudo apt install docker-ce docker-ce-cli containerd.io
         sudo usermod -aG docker "${USER}"
+
+        sudo snap install universal-ctags  # for vim tagbar
     else
-        echo "You'll need to manually install go and docker"
+        echo "You'll need to manually install go, docker, and universal ctags"
     fi
 else
     hash zsh 2>/dev/null || echo "You need to install zsh"
