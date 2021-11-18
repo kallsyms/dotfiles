@@ -19,14 +19,10 @@ function setup_path {
 }
 
 # link everything out to home, moving existing files/dirs to {existing}.old
-setup_path "conkyrc" ".conkyrc"
-setup_path "radare2rc" ".radare2rc"
 setup_path "tmux.conf" ".tmux.conf"
 setup_path "vim" ".vim"
 setup_path "zsh/zshrc" ".zshrc"
 setup_path "zsh/oh-my-zsh" ".oh-my-zsh"
-setup_path "i3" ".config/i3"
-setup_path "i3status.conf" ".config/i3status/config"
 setup_path "flake8" ".config/flake8"
 
 # git hooks
@@ -59,7 +55,7 @@ if [[ $(uname -s) == "Linux" ]]; then
             echo "Installing go"
             sudo add-apt-repository ppa:longsleep/golang-backports
             sudo apt update
-            sudo apt install golang-go
+            sudo apt install -y golang-go
 
             echo "Installing docker"
             sudo apt install -y apt-transport-https ca-certificates gnupg lsb-release
@@ -67,7 +63,7 @@ if [[ $(uname -s) == "Linux" ]]; then
             echo \
               "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
               $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-            sudo apt update && sudo apt install docker-ce docker-ce-cli containerd.io
+            sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io
             sudo usermod -aG docker "${USER}"
 
             sudo snap install universal-ctags  # for vim tagbar

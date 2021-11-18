@@ -1,8 +1,0 @@
-e cfg.fortunes = false
-e asm.cmtright = true
-e cmd.stack = true
-eco solarized
-e scr.utf8 = true
-e asm.bytes = true
-#e asm.pseudo = true
-e anal.jmptbl = true
