@@ -23,7 +23,12 @@ setup_path "tmux.conf" ".tmux.conf"
 setup_path "vim" ".vim"
 setup_path "zsh/zshrc" ".zshrc"
 setup_path "zsh/oh-my-zsh" ".oh-my-zsh"
+setup_path "i3" ".config/i3"
+setup_path "i3status.conf" ".config/i3status/config"
 setup_path "flake8" ".config/flake8"
+
+git config --global user.name "Nick Gregory"
+git config --global user.email computerfreak97@gmail.com
 
 # git hooks
 git config --global core.hookspath "${SCRIPTPATH}/git_hooks"
