@@ -292,6 +292,13 @@ set splitright
 set undodir=~/.vim/undo
 set undofile
 
+" syntax-based folds
+set foldmethod=syntax
+set foldlevelstart=99
+" space opens/closes the current fold
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+
 " Plugin customization
 " CoC
 set tagfunc=CocTagFunc
