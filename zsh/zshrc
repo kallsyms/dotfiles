@@ -4,7 +4,7 @@ ZSH_THEME="agnoster"
 
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+#DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(encode64 git pip python tmux urltools)
 
@@ -17,12 +17,14 @@ share() {
     for fn in "$@"
     do
         rclone copy "$fn" b2:ulimit/
-        python3 -c "import urllib.parse,sys;print('https://files.ulim.it/file/ulimit/' + urllib.parse.quote_plus(sys.argv[1]))" "$(basename $fn)"
+        python3 -c "import urllib.parse,sys;print('https://files.ulim.it/' + urllib.parse.quote_plus(sys.argv[1]))" "$(basename $fn)"
     done
 }
 
 alias d=docker
 alias k=kubectl
+
+alias ag='ag --path-to-ignore ~/.ignore'
 
 if [[ -f "${HOME}/dotfiles/overrides/zsh/zshrc-overrides" ]]
 then

@@ -26,6 +26,7 @@ setup_path "zsh/oh-my-zsh" ".oh-my-zsh"
 setup_path "i3" ".config/i3"
 setup_path "i3status.conf" ".config/i3status/config"
 setup_path "flake8" ".config/flake8"
+setup_path "agignore" ".ignore"
 
 git config --global user.name "Nick Gregory"
 git config --global user.email computerfreak97@gmail.com
