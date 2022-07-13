@@ -48,10 +48,16 @@ if [[ $(uname -s) == "Linux" ]]; then
         chsh -s $(which zsh) || true
 
         echo "Installing build utils"
-        sudo apt install -y build-essential autoconf pkg-config
+        sudo apt install -y clang build-essential autoconf pkg-config cmake gdb
 
         echo "Installing clang-format"
         sudo apt install -y clang-format
+
+        echo "Installing python stuff"
+        sudo apt install -y python3-pip ipython3
+
+        echo "Installing QEMU"
+        sudo apt install -y qemu-system qemu-user
 
         echo "Installing node"
         curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
