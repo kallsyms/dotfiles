@@ -45,7 +45,7 @@ if [[ $(uname -s) == "Linux" ]]; then
         echo "Installing shell and other essentials"
         sudo apt install -y zsh tmux curl vim silversearcher-ag
         echo "chsh:"
-        chsh -s $(which zsh)
+        chsh -s $(which zsh) || true
 
         echo "Installing build utils"
         sudo apt install -y build-essential autoconf pkg-config
@@ -59,17 +59,18 @@ if [[ $(uname -s) == "Linux" ]]; then
 
         if [ "$(lsb_release -si)" == "Ubuntu" ]; then
             echo "Installing go"
-            sudo add-apt-repository ppa:longsleep/golang-backports
+            sudo add-apt-repository -y ppa:longsleep/golang-backports
             sudo apt update
             sudo apt install -y golang-go
 
             echo "Installing docker"
             sudo apt install -y apt-transport-https ca-certificates gnupg lsb-release
-            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+            sudo mkdir -p /etc/apt/keyrings
+            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
             echo \
-              "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+              "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
               $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-            sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io
+            sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
             sudo usermod -aG docker "${USER}"
 
             sudo snap install universal-ctags  # for vim tagbar
