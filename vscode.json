@@ -1,0 +1,87 @@
+{
+    "codeQL.telemetry.enableTelemetry": false,
+    "codeQL.cli.executablePath": "/Users/nickgregory/tools/codeql/cli/codeql",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.inlineSuggest.enabled": true,
+    "go.toolsManagement.autoUpdate": true,
+    "vim.history": 1000,
+
+    "vim.normalModeKeyBindings": [
+      // shift+HJKL moves a lot in that direction
+      {
+        "before": ["H"],
+        "after": ["5", "b"]
+      },
+      {
+        "before": ["J"],
+        "after": ["5", "j"]
+      },
+      {
+        "before": ["K"],
+        "after": ["5", "k"]
+      },
+      {
+        "before": ["L"],
+        "after": ["5", "w"]
+      },
+  
+      // window movement
+      {
+        "before": ["<C-H>"],
+        "after": ["<C-W>", "h"]
+      },
+      {
+        "before": ["<C-J>"],
+        "after": ["<C-W>", "j"]
+      },
+      {
+        "before": ["<C-K>"],
+        "after": ["<C-W>", "k"]
+      },
+      {
+        "before": ["<C-L>"],
+        "after": ["<C-W>", "l"]
+      },
+  
+      // remap 0 to first non-blank character
+      {
+        "before": ["0"],
+        "after": ["^"]
+      },
+    ],
+  
+    "vim.normalModeKeyBindingsNonRecursive": [
+      {
+        "before": ["<Space>"],
+        "after": ["z", "a"]
+      }
+    ],
+  
+    "vim.visualModeKeyBindings": [
+      // shift+HJKL moves a lot in that direction
+      {
+        "before": ["H"],
+        "after": ["5", "b"]
+      },
+      {
+        "before": ["J"],
+        "after": ["5", "j"]
+      },
+      {
+        "before": ["K"],
+        "after": ["5", "k"]
+      },
+      {
+        "before": ["L"],
+        "after": ["5", "w"]
+      },
+  
+      // remap 0 to first non-blank character
+      {
+        "before": ["0"],
+        "after": ["^"]
+      },
+    ],
+    "vim.foldfix": true,
+    "editor.formatOnType": true
+}
