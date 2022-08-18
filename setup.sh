@@ -35,6 +35,8 @@ git config --global user.email computerfreak97@gmail.com
 git config --global core.hookspath "${SCRIPTPATH}/git_hooks"
 git config --global core.excludesfile "${SCRIPTPATH}/gitignore"
 
+git config --global init.defaultBranch main
+
 if [[ $(uname -s) == "Linux" ]]; then
     # caps->escape
 	echo "setxkbmap -option caps:escape" >> ${HOME}/.xinitrc

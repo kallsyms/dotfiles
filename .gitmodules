@@ -1,9 +1,6 @@
 [submodule "vim/pack/essential/start/jellybeans.vim"]
 	path = vim/pack/essential/start/jellybeans.vim
 	url = https://github.com/nanotech/jellybeans.vim
-[submodule "vim/pack/essential/start/tagbar"]
-	path = vim/pack/essential/start/tagbar
-	url = https://github.com/majutsushi/tagbar
 [submodule "vim/pack/essential/start/vim-clang-format"]
 	path = vim/pack/essential/start/vim-clang-format
 	url = https://github.com/rhysd/vim-clang-format
