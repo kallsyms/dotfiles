@@ -13,26 +13,26 @@ T='ffffffff'  # text
 
 i3lock                    \
     -i ${TMPBG}           \
-    --ringvercolor=$V     \
-    --ringwrongcolor=$W   \
+    --ringver-color=$V     \
+    --ringwrong-color=$W   \
     \
-    --insidecolor=$D      \
-    --ringcolor=$D        \
-    --linecolor=$B        \
-    --separatorcolor=$D   \
+    --inside-color=$D      \
+    --ring-color=$D        \
+    --line-color=$B        \
+    --separator-color=$D   \
     \
-    --verifcolor=$T       \
-    --wrongcolor=$T       \
-    --layoutcolor=$T      \
-    --timecolor=$T        \
-    --datecolor=$T        \
-    --keyhlcolor=$V       \
-    --bshlcolor=$W        \
+    --verif-color=$T       \
+    --wrong-color=$T       \
+    --layout-color=$T      \
+    --time-color=$T        \
+    --date-color=$T        \
+    --keyhl-color=$V       \
+    --bshl-color=$W        \
     \
     --clock               \
     --indicator           \
-    --timestr="%H:%M:%S"  \
-    --datestr="%a, %d %b %Y" \
+    --time-str="%H:%M:%S"  \
+    --date-str="%a, %d %b %Y" \
     \
     --ignore-empty-password \
     --show-failed-attempts
