@@ -105,4 +105,4 @@ elif [[ $(uname -s) == "Darwin" ]]; then
 fi
 
 # Bootstrap nvim plugins
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' -c 'CocUpdate'
