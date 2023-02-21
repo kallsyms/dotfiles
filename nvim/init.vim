@@ -1,3 +1,5 @@
+lua require('plugins')
+
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -9,9 +11,6 @@ set autoread
 " like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
-
-" Fast saving
-nmap <leader>w :w!<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -59,10 +58,6 @@ set tm=500
 
 " Line numbers
 set number
-
-" Nice mouse stuff
-set mouse=v
-set ttymouse=xterm2
 
 " No startup message
 set shortmess+=I
@@ -325,13 +320,8 @@ let g:tagbar_compact=1
 " Toggle tree with space
 let g:tagbar_map_togglefold=["<Space>", "za"]
 
-set updatetime=300
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+set updatetime=300  " cursor hold (ms)
+set signcolumn=number
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -366,22 +356,6 @@ autocmd FileType python let b:coc_root_patterns = ['.env', 'requirements.txt']
 " Search workspace symbols.
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 
-
-" Nerdtree
-" Open if directory specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-" Close if tree is only thign open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Toggle on Ctrl+g
-map <C-g> :NERDTreeToggle<CR>
-" Toggle tree with space
-let g:NERDTreeMapActivateNode="<Space>"
-
-
-" CtrlP
-" Use Ctrl-Space
-let g:ctrlp_map = '<Nul>'
 
 if filereadable(expand("~/dotfiles/overrides/vim/vimrc-overrides"))
     source ~/dotfiles/overrides/vim/vimrc-overrides

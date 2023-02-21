@@ -1,31 +1,6 @@
-[submodule "vim/pack/essential/start/jellybeans.vim"]
-	path = vim/pack/essential/start/jellybeans.vim
-	url = https://github.com/nanotech/jellybeans.vim
-[submodule "vim/pack/essential/start/vim-clang-format"]
-	path = vim/pack/essential/start/vim-clang-format
-	url = https://github.com/rhysd/vim-clang-format
 [submodule "zsh/oh-my-zsh"]
 	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
-[submodule "vim/pack/essential/start/ctrlp.vim"]
-	path = vim/pack/essential/start/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim
-[submodule "vim/pack/essential/start/nerdtree"]
-	path = vim/pack/essential/start/nerdtree
-	url = https://github.com/scrooloose/nerdtree
-[submodule "vim/pack/essential/start/nerdtree-git-plugin"]
-	path = vim/pack/essential/start/nerdtree-git-plugin
-	url = https://github.com/Xuyuanp/nerdtree-git-plugin
-[submodule "vim/pack/essential/start/vim-commentary"]
-	path = vim/pack/essential/start/vim-commentary
-	url = https://github.com/tpope/vim-commentary
-[submodule "vim/pack/essential/start/vim-airline"]
-	path = vim/pack/essential/start/vim-airline
-	url = https://github.com/vim-airline/vim-airline
-[submodule "vim/pack/essential/start/vim-elixir"]
-	path = vim/pack/essential/start/vim-elixir
-	url = https://github.com/elixir-editors/vim-elixir
-[submodule "vim/pack/essential/start/coc.nvim"]
-	path = vim/pack/essential/start/coc.nvim
-	url = https://github.com/neoclide/coc.nvim
-	branch = release
+[submodule "nvim/pack/packer/start/packer.nvim"]
+	path = nvim/pack/packer/start/packer.nvim
+	url = https://github.com/wbthomason/packer.nvim

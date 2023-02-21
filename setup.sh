@@ -20,7 +20,7 @@ function setup_path {
 
 # link everything out to home, moving existing files/dirs to {existing}.old
 setup_path "tmux.conf" ".tmux.conf"
-setup_path "vim" ".vim"
+setup_path "nvim" ".config/nvim"
 setup_path "zsh/zshrc" ".zshrc"
 setup_path "zsh/oh-my-zsh" ".oh-my-zsh"
 setup_path "i3" ".config/i3"
@@ -45,7 +45,7 @@ if [[ $(uname -s) == "Linux" ]]; then
         sudo apt update
 
         echo "Installing shell and other essentials"
-        sudo apt install -y zsh tmux curl vim silversearcher-ag
+        sudo apt install -y zsh tmux curl neovim silversearcher-ag
         echo "chsh:"
         chsh -s $(which zsh) || true
 
@@ -92,7 +92,7 @@ elif [[ $(uname -s) == "Darwin" ]]; then
     hash brew 2>/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo "Installing essentials"
     brew install --cask iterm2 tunnelblick
-    brew install tmux vim ag wget
+    brew install tmux neovim ag wget
     echo "Installing node"
     brew install node yarn
     echo "Installing go"
@@ -103,3 +103,6 @@ elif [[ $(uname -s) == "Darwin" ]]; then
     echo "Installing vim utils"
     brew install universal-ctags
 fi
+
+# Bootstrap nvim plugins
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'

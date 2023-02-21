@@ -13,18 +13,14 @@ source ${ZSH}/oh-my-zsh.sh
 bindkey "^[^[[D" backward-word
 bindkey "^[^[[C" forward-word
 
-share() {
-    for fn in "$@"
-    do
-        rclone copy "$fn" b2:ulimit/
-        python3 -c "import urllib.parse,sys;print('https://files.ulim.it/' + urllib.parse.quote_plus(sys.argv[1]))" "$(basename $fn)"
-    done
-}
-
 alias d=docker
 alias k=kubectl
 
 alias ag='ag --path-to-ignore ~/.ignore'
+alias ccat='pygmentize -g'
+
+alias vi='nvim'
+alias vim='nvim'
 
 if [[ -f "${HOME}/dotfiles/overrides/zsh/zshrc-overrides" ]]
 then
