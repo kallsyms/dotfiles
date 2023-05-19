@@ -9,6 +9,8 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(encode64 git pip python tmux urltools)
 
 source ${ZSH}/oh-my-zsh.sh
+#functions[prompt_git]=""
+functions[prompt_hg]=""  # hg is _slow_ regardless of whether you're in a mercurial dir
 
 bindkey "^[^[[D" backward-word
 bindkey "^[^[[C" forward-word
