@@ -61,7 +61,7 @@ if [[ $(uname -s) == "Linux" ]]; then
         sudo apt install -y qemu-system qemu-user
 
         echo "Installing node"
-        curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+        curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
         sudo apt install -y nodejs
 
         if [ "$(lsb_release -si)" == "Ubuntu" ]; then
@@ -69,6 +69,9 @@ if [[ $(uname -s) == "Linux" ]]; then
             sudo add-apt-repository -y ppa:longsleep/golang-backports
             sudo apt update
             sudo apt install -y golang-go
+
+            echo "Installing rust"
+            curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
             echo "Installing docker"
             sudo apt install -y apt-transport-https ca-certificates gnupg lsb-release
@@ -82,7 +85,7 @@ if [[ $(uname -s) == "Linux" ]]; then
 
             sudo snap install universal-ctags  # for vim tagbar
         else
-            echo "You'll need to manually install go, docker, and universal ctags"
+            echo "You'll need to manually install go, rust, docker, and universal ctags"
         fi
     fi
 elif [[ $(uname -s) == "Darwin" ]]; then
@@ -96,12 +99,15 @@ elif [[ $(uname -s) == "Darwin" ]]; then
     brew install node yarn
     echo "Installing go"
     brew install go
-    echo "Installing and setting up podman and multipass"
+    echo "Installing rust"
+    brew install rustup-init
+    rustup-init -y
+    echo "Installing and setting up multipass"
     brew install podman multipass
-    podman machine init --cpus 4 --memory 2048
+    #podman machine init --cpus 4 --memory 2048
     echo "Installing vim utils"
     brew install universal-ctags
 fi
 
 # Bootstrap nvim plugins
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' -c 'CocUpdate'
+nvim -c 'PackerSync' -c 'CocUpdate'
