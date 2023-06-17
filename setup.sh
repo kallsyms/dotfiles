@@ -46,8 +46,7 @@ if [[ $(uname -s) == "Linux" ]]; then
 
         echo "Installing shell and other essentials"
         sudo apt install -y zsh tmux curl neovim silversearcher-ag
-        echo "chsh:"
-        chsh -s $(which zsh) || true
+        sudo chsh -s $(which zsh) "${USER}"
 
         echo "Installing build utils"
         sudo apt install -y clang build-essential autoconf pkg-config cmake gdb
