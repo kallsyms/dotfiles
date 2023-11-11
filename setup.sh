@@ -39,7 +39,7 @@ git config --global init.defaultBranch main
 
 if [[ $(uname -s) == "Linux" ]]; then
     # caps->escape
-	echo "setxkbmap -option caps:escape" >> ${HOME}/.xinitrc
+    echo "setxkbmap -option caps:escape" >> ${HOME}/.xinitrc
     
     if hash apt 2>/dev/null; then
         sudo apt update
@@ -61,7 +61,11 @@ if [[ $(uname -s) == "Linux" ]]; then
         sudo apt install -y qemu-system qemu-user
 
         echo "Installing node"
-        curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+        sudo apt-get install -y ca-certificates curl gnupg
+        sudo mkdir -p /etc/apt/keyrings
+        curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+        echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+        sudo apt update
         sudo apt install -y nodejs
 
         if [ "$(lsb_release -si)" == "Ubuntu" ]; then
@@ -75,7 +79,6 @@ if [[ $(uname -s) == "Linux" ]]; then
 
             echo "Installing docker"
             sudo apt install -y apt-transport-https ca-certificates gnupg lsb-release
-            sudo mkdir -p /etc/apt/keyrings
             curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
             echo \
               "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
