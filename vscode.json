@@ -1,6 +1,5 @@
 {
   "codeQL.telemetry.enableTelemetry": false,
-  "codeQL.cli.executablePath": "/Users/nickgregory/tools/codeql/cli/codeql",
   "security.workspace.trust.untrustedFiles": "open",
   "editor.inlineSuggest.enabled": true,
   "go.toolsManagement.autoUpdate": true,
@@ -13,5 +12,11 @@
   "editor.unicodeHighlight.invisibleCharacters": false,
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "cmake.configureOnOpen": false,
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "codeQL.runningQueries.useExtensionPacks": "all",
+  "codeQL.cli.executablePath": "/Users/nickgregory/tools/codeql/codeql",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "editor.stickyScroll.enabled": true
 }
