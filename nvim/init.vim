@@ -295,6 +295,19 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
 " Plugin customization
+" Tagbar
+"autocmd VimEnter * :call tagbar#autoopen()
+" Always open
+let g:tagbar_autofocus=0
+let g:tagbar_autoclose=0
+" No spacing
+let g:tagbar_compact=1
+" Toggle tree with space
+let g:tagbar_map_togglefold=["<Space>", "za"]
+
+set updatetime=300  " cursor hold (ms)
+set signcolumn=number
+
 " CoC
 set tagfunc=CocTagFunc
 
@@ -309,19 +322,6 @@ let g:coc_global_extensions = [
     \'coc-sql',
     \'coc-yaml'
     \]
-
-" Tagbar
-"autocmd VimEnter * :call tagbar#autoopen()
-" Always open
-let g:tagbar_autofocus=0
-let g:tagbar_autoclose=0
-" No spacing
-let g:tagbar_compact=1
-" Toggle tree with space
-let g:tagbar_map_togglefold=["<Space>", "za"]
-
-set updatetime=300  " cursor hold (ms)
-set signcolumn=number
 
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
